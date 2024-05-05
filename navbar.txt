@@ -1,0 +1,54 @@
+import React, { useState } from "react";
+import "../styles/components/navbar.css";
+
+function Navbar({ dispatch, currentTab }) {
+  const [inboxClassName, setInboxClassName] = useState(
+    currentTab === "Inbox" ? "active" : ""
+  );
+  const [folderClassName, setFolderClassName] = useState(
+    currentTab === "Folder" ? "active" : ""
+  );
+
+  function makeActive(tabName) {
+    switch (tabName) {
+      case "Inbox":
+        setInboxClassName("active");
+        setFolderClassName("");
+        dispatch({ tab: "Inbox" });
+        break;
+      case "Folder":
+        setInboxClassName("");
+        setFolderClassName("active");
+        dispatch({ tab: "Folder" });
+        break;
+      default:
+        break;
+    }
+  }
+
+  return (
+    <nav>
+      <div>Digital Papers</div>
+      <div>
+        <button
+          className={inboxClassName}
+          onClick={() => {
+            makeActive("Inbox");
+          }}
+        >
+          Inbox
+        </button>
+        <button
+          className={folderClassName}
+          onClick={() => {
+            makeActive("Folder");
+          }}
+        >
+          Folders
+        </button>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

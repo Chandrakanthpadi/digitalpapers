@@ -1,0 +1,29 @@
+.sidebar {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: -100%;
+  transition: right 1s ease-in-out;
+  background-color: red;
+  @media screen and (min-width: 600px) {
+    width: 40%;
+  }
+}
+
+.sidebar.active {
+  /* height: calc(100dvh-2rem); */
+  position: absolute;
+  width: 100%;
+  right: 0;
+  @media screen and (min-width: 600px) {
+    width: 40%;
+  }
+}
+
+.inbox {
+  background-color: aqua;
+}
+
+.folder {
+  background-color: aquamarine;
+}
